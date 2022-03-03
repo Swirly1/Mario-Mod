@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "mario_mod:blocks/fireflowerblock",
+    "particle": "mario_mod:blocks/fireflowerblock"
+  }
+}
