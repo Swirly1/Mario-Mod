@@ -128,6 +128,14 @@
           }
         ]
       }
+    },
+    {
+      "name": "A",
+      "type": "code",
+      "sortid": 7,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "a"
     }
   ],
   "variable_elements": [],
