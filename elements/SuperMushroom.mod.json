@@ -32,6 +32,12 @@
     "onItemInInventoryTick": {
       "name": "SuperMushroomItemInInventoryTick"
     },
+    "onStoppedUsing": {
+      "name": "SuperMushroomOnPlayerStoppedUsing"
+    },
+    "onDroppedByPlayer": {
+      "name": "SuperMushroomItemIsDroppedByPlayer"
+    },
     "hasDispenseBehavior": false
   }
 }

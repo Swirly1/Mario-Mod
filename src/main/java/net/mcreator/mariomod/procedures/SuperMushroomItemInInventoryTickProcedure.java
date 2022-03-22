@@ -13,6 +13,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.core.Direction;
 
+import net.mcreator.mariomod.network.MarioModModVariables;
 import net.mcreator.mariomod.init.MarioModModItems;
 
 import java.util.concurrent.atomic.AtomicReference;
@@ -21,11 +22,13 @@ public class SuperMushroomItemInInventoryTickProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return;
+		Direction playerDirection = Direction.NORTH;
 		double health = 0;
 		double diamonds = 0;
 		double shrooms = 0;
-		Direction playerDirection = Direction.NORTH;
-		shrooms = 0;
+		double runCount = 0;
+		MarioModModVariables.MapVariables.get(world).shroomCount = 0;
+		MarioModModVariables.MapVariables.get(world).syncData(world);
 		{
 			AtomicReference<IItemHandler> _iitemhandlerref = new AtomicReference<>();
 			entity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _iitemhandlerref.set(capability));
@@ -33,12 +36,22 @@ public class SuperMushroomItemInInventoryTickProcedure {
 				for (int _idx = 0; _idx < _iitemhandlerref.get().getSlots(); _idx++) {
 					ItemStack itemstackiterator = _iitemhandlerref.get().getStackInSlot(_idx).copy();
 					if (MarioModModItems.SUPER_MUSHROOM == itemstackiterator.getItem()) {
-						shrooms = shrooms + (itemstackiterator).getCount();
+						MarioModModVariables.MapVariables.get(world).shroomCount = MarioModModVariables.MapVariables.get(world).shroomCount
+								+ (itemstackiterator).getCount();
+						MarioModModVariables.MapVariables.get(world).syncData(world);
 					}
 				}
 			}
 		}
-		if (shrooms > 1) {
+		if (MarioModModVariables.MapVariables.get(world).shroomCount == 0) {
+			{
+				Entity _ent = entity;
+				if (!_ent.level.isClientSide() && _ent.getServer() != null)
+					_ent.getServer().getCommands().performCommand(_ent.createCommandSourceStack().withSuppressedOutput().withPermission(4),
+							"attribute @s minecraft:generic.max_health base set 20");
+			}
+		}
+		if (MarioModModVariables.MapVariables.get(world).shroomCount > 1) {
 			if (entity instanceof Player _player && !_player.level.isClientSide())
 				_player.displayClientMessage(new TextComponent(("You can only have 1 super mushroom " + "in your inventory. ")), (true));
 			if (entity instanceof Player _player) {
@@ -97,6 +110,18 @@ public class SuperMushroomItemInInventoryTickProcedure {
 			}
 			if (entity instanceof LivingEntity _entity)
 				_entity.setHealth(40);
+		}
+		if (!(entity instanceof Player _playerHasItem
+				? _playerHasItem.getInventory().contains(new ItemStack(MarioModModItems.SUPER_MUSHROOM))
+				: false)) {
+			{
+				Entity _ent = entity;
+				if (!_ent.level.isClientSide() && _ent.getServer() != null)
+					_ent.getServer().getCommands().performCommand(_ent.createCommandSourceStack().withSuppressedOutput().withPermission(4),
+							"attribute @s minecraft:generic.max_health base set 20");
+			}
+			if (entity instanceof LivingEntity _entity)
+				_entity.setHealth(20);
 		}
 	}
 }

@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "mario_mod:blocks/questionblocktop",
+    "up": "mario_mod:blocks/questionblocktop",
+    "north": "mario_mod:blocks/questionblock",
+    "east": "mario_mod:blocks/questionblock",
+    "south": "mario_mod:blocks/questionblock",
+    "west": "mario_mod:blocks/questionblock",
+    "particle": "mario_mod:blocks/questionblocktop"
+  }
+}

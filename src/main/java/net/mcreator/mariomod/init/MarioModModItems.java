@@ -14,6 +14,7 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.BlockItem;
 
 import net.mcreator.mariomod.item.SuperMushroomItem;
+import net.mcreator.mariomod.item.IceFlowerItem;
 import net.mcreator.mariomod.item.FireFlowerItem;
 
 import java.util.List;
@@ -25,6 +26,9 @@ public class MarioModModItems {
 	public static final Item FIRE_FLOWER = register(new FireFlowerItem());
 	public static final Item FIRE_FLOWER_BLOCK = register(MarioModModBlocks.FIRE_FLOWER_BLOCK, MarioModModTabs.TAB_MARIO);
 	public static final Item SUPER_MUSHROOM = register(new SuperMushroomItem());
+	public static final Item ICE_FLOWER = register(new IceFlowerItem());
+	public static final Item ICE_FLOWER_BLOCK = register(MarioModModBlocks.ICE_FLOWER_BLOCK, MarioModModTabs.TAB_MARIO);
+	public static final Item QUESTION_BLOCK = register(MarioModModBlocks.QUESTION_BLOCK, MarioModModTabs.TAB_MARIO);
 
 	private static Item register(Item item) {
 		REGISTRY.add(item);

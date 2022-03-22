@@ -19,19 +19,19 @@ import net.mcreator.mariomod.init.MarioModModBlocks;
 
 import java.util.Set;
 
-public class FireFlowerBlockFeature extends DefaultFlowerFeature {
-	public static final FireFlowerBlockFeature FEATURE = (FireFlowerBlockFeature) new FireFlowerBlockFeature()
-			.setRegistryName("mario_mod:fire_flower_block");
+public class IceFlowerBlockFeature extends DefaultFlowerFeature {
+	public static final IceFlowerBlockFeature FEATURE = (IceFlowerBlockFeature) new IceFlowerBlockFeature()
+			.setRegistryName("mario_mod:ice_flower_block");
 	public static final ConfiguredFeature<?, ?> CONFIGURED_FEATURE = FEATURE
 			.configured(new RandomPatchConfiguration.GrassConfigurationBuilder(
-					new SimpleStateProvider(MarioModModBlocks.FIRE_FLOWER_BLOCK.defaultBlockState()), SimpleBlockPlacer.INSTANCE).tries(10)
+					new SimpleStateProvider(MarioModModBlocks.ICE_FLOWER_BLOCK.defaultBlockState()), SimpleBlockPlacer.INSTANCE).tries(3)
 
 							.build())
 			.decorated(FeatureDecorator.HEIGHTMAP.configured(new HeightmapConfiguration(Heightmap.Types.MOTION_BLOCKING))).squared().rarity(32)
-			.count(6);
-	public static final Set<ResourceLocation> GENERATE_BIOMES = Set.of(new ResourceLocation("crimson_forest"));
+			.count(10);
+	public static final Set<ResourceLocation> GENERATE_BIOMES = null;
 
-	public FireFlowerBlockFeature() {
+	public IceFlowerBlockFeature() {
 		super(RandomPatchConfiguration.CODEC);
 	}
 
@@ -39,7 +39,7 @@ public class FireFlowerBlockFeature extends DefaultFlowerFeature {
 		WorldGenLevel world = context.level();
 		ResourceKey<Level> dimensionType = world.getLevel().dimension();
 		boolean dimensionCriteria = false;
-		if (dimensionType == Level.NETHER)
+		if (dimensionType == Level.OVERWORLD)
 			dimensionCriteria = true;
 		if (!dimensionCriteria)
 			return false;

@@ -1,5 +1,8 @@
 {
+  "item.mario_mod.ice_flower": "Ice Flower",
+  "block.mario_mod.ice_flower_block": "Ice Flower Plant",
   "block.mario_mod.fire_flower_block": "Fire Flower Plant",
+  "block.mario_mod.question_block": "Question Block",
   "item.mario_mod.super_mushroom": "Super Mushroom",
   "itemGroup.tabmario": "Mario",
   "item.mario_mod.fire_flower": "Fire Flower"

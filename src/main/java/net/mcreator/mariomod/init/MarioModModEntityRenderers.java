@@ -16,5 +16,6 @@ public class MarioModModEntityRenderers {
 	@SubscribeEvent
 	public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
 		event.registerEntityRenderer(MarioModModEntities.FIRE_FLOWER, ThrownItemRenderer::new);
+		event.registerEntityRenderer(MarioModModEntities.ICE_FLOWER, ThrownItemRenderer::new);
 	}
 }

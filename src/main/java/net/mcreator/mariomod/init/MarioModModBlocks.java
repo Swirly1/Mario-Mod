@@ -12,6 +12,8 @@ import net.minecraftforge.api.distmarker.Dist;
 
 import net.minecraft.world.level.block.Block;
 
+import net.mcreator.mariomod.block.QuestionBlockBlock;
+import net.mcreator.mariomod.block.IceFlowerBlockBlock;
 import net.mcreator.mariomod.block.FireFlowerBlockBlock;
 
 import java.util.List;
@@ -21,6 +23,8 @@ import java.util.ArrayList;
 public class MarioModModBlocks {
 	private static final List<Block> REGISTRY = new ArrayList<>();
 	public static final Block FIRE_FLOWER_BLOCK = register(new FireFlowerBlockBlock());
+	public static final Block ICE_FLOWER_BLOCK = register(new IceFlowerBlockBlock());
+	public static final Block QUESTION_BLOCK = register(new QuestionBlockBlock());
 
 	private static Block register(Block block) {
 		REGISTRY.add(block);
@@ -37,6 +41,7 @@ public class MarioModModBlocks {
 		@SubscribeEvent
 		public static void clientSetup(FMLClientSetupEvent event) {
 			FireFlowerBlockBlock.registerRenderLayer();
+			IceFlowerBlockBlock.registerRenderLayer();
 		}
 	}
 }

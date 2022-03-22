@@ -16,6 +16,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.core.Registry;
 
+import net.mcreator.mariomod.world.features.plants.IceFlowerBlockFeature;
 import net.mcreator.mariomod.world.features.plants.FireFlowerBlockFeature;
 
 import java.util.Set;
@@ -28,6 +29,8 @@ public class MarioModModFeatures {
 	static {
 		REGISTRY.put(FireFlowerBlockFeature.FEATURE, new FeatureRegistration(GenerationStep.Decoration.VEGETAL_DECORATION,
 				FireFlowerBlockFeature.GENERATE_BIOMES, FireFlowerBlockFeature.CONFIGURED_FEATURE));
+		REGISTRY.put(IceFlowerBlockFeature.FEATURE, new FeatureRegistration(GenerationStep.Decoration.VEGETAL_DECORATION,
+				IceFlowerBlockFeature.GENERATE_BIOMES, IceFlowerBlockFeature.CONFIGURED_FEATURE));
 	}
 
 	@SubscribeEvent
