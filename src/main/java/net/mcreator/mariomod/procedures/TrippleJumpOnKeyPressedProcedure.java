@@ -5,33 +5,36 @@ import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.common.MinecraftForge;
 
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.network.chat.TextComponent;
 
 import net.mcreator.mariomod.network.MarioModModVariables;
 
 public class TrippleJumpOnKeyPressedProcedure {
-	public static void execute(LevelAccessor world, Entity entity) {
+	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return;
+		boolean give = false;
+		MarioModModVariables.MapVariables.get(world).giveDouble = true;
+		MarioModModVariables.MapVariables.get(world).syncData(world);
 		if (entity.isOnGround() == true) {
 			MarioModModVariables.MapVariables.get(world).jumpCount = MarioModModVariables.MapVariables.get(world).jumpCount + 1;
 			MarioModModVariables.MapVariables.get(world).syncData(world);
 		}
-		if (MarioModModVariables.MapVariables.get(world).jumpCount % 3 == 0) {
-			{
-				Entity _ent = entity;
-				if (!_ent.level.isClientSide() && _ent.getServer() != null)
-					_ent.getServer().getCommands().performCommand(_ent.createCommandSourceStack().withSuppressedOutput().withPermission(4),
-							"effect give @p minecraft:jump_boost 1 3");
-			}
-			while (entity.isOnGround() == false) {
+		if (entity.isOnGround() == true) {
+			if (MarioModModVariables.MapVariables.get(world).jumpCount % 3 == 0) {
+				MarioModModVariables.MapVariables.get(world).startY = entity.getY();
+				MarioModModVariables.MapVariables.get(world).syncData(world);
 				{
 					Entity _ent = entity;
 					if (!_ent.level.isClientSide() && _ent.getServer() != null)
 						_ent.getServer().getCommands().performCommand(_ent.createCommandSourceStack().withSuppressedOutput().withPermission(4),
-								"effect give @p minecraft:resistance 1 3");
+								"effect give @p minecraft:jump_boost 1 2");
+				}
+				{
+					Entity _ent = entity;
+					if (!_ent.level.isClientSide() && _ent.getServer() != null)
+						_ent.getServer().getCommands().performCommand(_ent.createCommandSourceStack().withSuppressedOutput().withPermission(4),
+								"effect give @p minecraft:slow_falling 2 1");
 				}
 				new Object() {
 					private int ticks = 0;
@@ -54,13 +57,45 @@ public class TrippleJumpOnKeyPressedProcedure {
 					}
 
 					private void run() {
-						continue;
+						if (entity.isOnGround() == false) {
+							if (entity.isOnGround() == true) {
+								{
+									Entity _ent = entity;
+									if (!_ent.level.isClientSide() && _ent.getServer() != null)
+										_ent.getServer().getCommands().performCommand(
+												_ent.createCommandSourceStack().withSuppressedOutput().withPermission(4),
+												"effect clear @p minecraft:jump_boost");
+								}
+								{
+									Entity _ent = entity;
+									if (!_ent.level.isClientSide() && _ent.getServer() != null)
+										_ent.getServer().getCommands().performCommand(
+												_ent.createCommandSourceStack().withSuppressedOutput().withPermission(4),
+												"effect clear @p minecraft:slow_falling");
+								}
+							} else {
+								TrippleJumpOnKeyPressedProcedure.execute(world, x, y, z, entity);
+							}
+						} else {
+							{
+								Entity _ent = entity;
+								if (!_ent.level.isClientSide() && _ent.getServer() != null)
+									_ent.getServer().getCommands().performCommand(
+											_ent.createCommandSourceStack().withSuppressedOutput().withPermission(4),
+											"effect clear @p minecraft:jump_boost");
+							}
+							{
+								Entity _ent = entity;
+								if (!_ent.level.isClientSide() && _ent.getServer() != null)
+									_ent.getServer().getCommands().performCommand(
+											_ent.createCommandSourceStack().withSuppressedOutput().withPermission(4),
+											"effect clear @p minecraft:slow_falling");
+							}
+						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, 5);
 			}
 		}
-		if (entity instanceof Player _player && !_player.level.isClientSide())
-			_player.displayClientMessage(new TextComponent(("" + MarioModModVariables.MapVariables.get(world).jumpCount)), (true));
 	}
 }

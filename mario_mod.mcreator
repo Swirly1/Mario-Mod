@@ -236,7 +236,7 @@
       "name": "TrippleJumpOnKeyPressed",
       "type": "procedure",
       "sortid": 16,
-      "compiles": false,
+      "compiles": true,
       "locked_code": false,
       "registry_name": "tripple_jump_on_key_pressed",
       "metadata": {
@@ -244,6 +244,18 @@
           {
             "name": "entity",
             "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
           },
           {
             "name": "world",
@@ -259,6 +271,74 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "tripple_jump"
+    },
+    {
+      "name": "QuestionBlockBlockDestroyedByPlayer",
+      "type": "procedure",
+      "sortid": 18,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "question_block_block_destroyed_by_player",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "SuperStarFoodEaten",
+      "type": "procedure",
+      "sortid": 22,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "super_star_food_eaten",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "SuperStar",
+      "type": "food",
+      "sortid": 22,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "super_star"
+    },
+    {
+      "name": "SuperMushroomRecipe",
+      "type": "recipe",
+      "sortid": 23,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "super_mushroom_recipe"
+    },
+    {
+      "name": "QuestionBlockRecipe",
+      "type": "recipe",
+      "sortid": 24,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "question_block_recipe"
     }
   ],
   "variable_elements": [
@@ -273,11 +353,30 @@
       "type": "number",
       "scope": "map",
       "value": "0"
+    },
+    {
+      "name": "giveDouble",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "startY",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
+    },
+    {
+      "name": "starCount",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
     }
   ],
   "sound_elements": [],
   "language_map": {
     "en_us": {
+      "item.mario_mod.super_star": "Super Star",
       "key.mario_mod.tripple_jump": "Tripple Jump",
       "item.mario_mod.ice_flower": "Ice Flower",
       "block.mario_mod.ice_flower_block": "Ice Flower Plant",

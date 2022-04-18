@@ -52,7 +52,7 @@ public class TrippleJumpMessage {
 			return;
 		if (type == 0) {
 
-			TrippleJumpOnKeyPressedProcedure.execute(world, entity);
+			TrippleJumpOnKeyPressedProcedure.execute(world, x, y, z, entity);
 		}
 	}
 

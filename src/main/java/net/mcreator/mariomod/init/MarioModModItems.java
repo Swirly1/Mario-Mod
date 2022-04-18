@@ -13,6 +13,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.BlockItem;
 
+import net.mcreator.mariomod.item.SuperStarItem;
 import net.mcreator.mariomod.item.SuperMushroomItem;
 import net.mcreator.mariomod.item.IceFlowerItem;
 import net.mcreator.mariomod.item.FireFlowerItem;
@@ -29,6 +30,7 @@ public class MarioModModItems {
 	public static final Item ICE_FLOWER = register(new IceFlowerItem());
 	public static final Item ICE_FLOWER_BLOCK = register(MarioModModBlocks.ICE_FLOWER_BLOCK, MarioModModTabs.TAB_MARIO);
 	public static final Item QUESTION_BLOCK = register(MarioModModBlocks.QUESTION_BLOCK, MarioModModTabs.TAB_MARIO);
+	public static final Item SUPER_STAR = register(new SuperStarItem());
 
 	private static Item register(Item item) {
 		REGISTRY.add(item);

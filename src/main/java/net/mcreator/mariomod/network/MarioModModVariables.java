@@ -93,6 +93,9 @@ public class MarioModModVariables {
 		public static final String DATA_NAME = "mario_mod_mapvars";
 		public double shroomCount = 0;
 		public double jumpCount = 0;
+		public boolean giveDouble = false;
+		public double startY = 0;
+		public double starCount = 0;
 
 		public static MapVariables load(CompoundTag tag) {
 			MapVariables data = new MapVariables();
@@ -103,12 +106,18 @@ public class MarioModModVariables {
 		public void read(CompoundTag nbt) {
 			shroomCount = nbt.getDouble("shroomCount");
 			jumpCount = nbt.getDouble("jumpCount");
+			giveDouble = nbt.getBoolean("giveDouble");
+			startY = nbt.getDouble("startY");
+			starCount = nbt.getDouble("starCount");
 		}
 
 		@Override
 		public CompoundTag save(CompoundTag nbt) {
 			nbt.putDouble("shroomCount", shroomCount);
 			nbt.putDouble("jumpCount", jumpCount);
+			nbt.putBoolean("giveDouble", giveDouble);
+			nbt.putDouble("startY", startY);
+			nbt.putDouble("starCount", starCount);
 			return nbt;
 		}
 

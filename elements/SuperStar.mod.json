@@ -1,0 +1,29 @@
+{
+  "_fv": 24,
+  "_type": "food",
+  "definition": {
+    "renderType": 0,
+    "texture": "star",
+    "customModelName": "Normal",
+    "name": "Super Star",
+    "rarity": "COMMON",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "CUSTOM:Mario"
+    },
+    "stackSize": 1,
+    "nutritionalValue": 0,
+    "saturation": 0.0,
+    "eatingSpeed": 1,
+    "resultItem": {
+      "value": ""
+    },
+    "forDogs": false,
+    "isAlwaysEdible": true,
+    "animation": "eat",
+    "hasGlow": false,
+    "onEaten": {
+      "name": "SuperStarFoodEaten"
+    }
+  }
+}

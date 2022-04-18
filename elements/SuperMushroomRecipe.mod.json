@@ -1,0 +1,46 @@
+{
+  "_fv": 24,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "recipeRetstackSize": 1,
+    "group": "",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      {
+        "value": "Blocks.BROWN_MUSHROOM"
+      },
+      {
+        "value": "Blocks.RED_MUSHROOM"
+      },
+      {
+        "value": "Blocks.WARPED_FUNGUS"
+      },
+      {
+        "value": "Blocks.CRIMSON_FUNGUS"
+      },
+      {
+        "value": "Items.GOLDEN_APPLE#0"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:SuperMushroom"
+    },
+    "name": "super_mushroom_recipe",
+    "namespace": "mod"
+  }
+}
