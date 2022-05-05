@@ -1,5 +1,5 @@
 <application>
   <component name="GradleSystemSettings">
-    <option name="serviceDirectoryPath" value="$USER_HOME$" />
+    <option name="serviceDirectoryPath" value="$USER_HOME$/.grade/" />
   </component>
 </application>
