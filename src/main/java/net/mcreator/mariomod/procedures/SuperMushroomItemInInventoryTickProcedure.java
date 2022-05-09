@@ -35,7 +35,7 @@ public class SuperMushroomItemInInventoryTickProcedure {
 			if (_iitemhandlerref.get() != null) {
 				for (int _idx = 0; _idx < _iitemhandlerref.get().getSlots(); _idx++) {
 					ItemStack itemstackiterator = _iitemhandlerref.get().getStackInSlot(_idx).copy();
-					if (MarioModModItems.SUPER_MUSHROOM == itemstackiterator.getItem()) {
+					if (MarioModModItems.SUPER_MUSHROOM.get() == itemstackiterator.getItem()) {
 						MarioModModVariables.MapVariables.get(world).shroomCount = MarioModModVariables.MapVariables.get(world).shroomCount
 								+ (itemstackiterator).getCount();
 						MarioModModVariables.MapVariables.get(world).syncData(world);
@@ -55,32 +55,32 @@ public class SuperMushroomItemInInventoryTickProcedure {
 			if (entity instanceof Player _player && !_player.level.isClientSide())
 				_player.displayClientMessage(new TextComponent(("You can only have 1 super mushroom " + "in your inventory. ")), (true));
 			if (entity instanceof Player _player) {
-				ItemStack _stktoremove = new ItemStack(MarioModModItems.SUPER_MUSHROOM);
+				ItemStack _stktoremove = new ItemStack(MarioModModItems.SUPER_MUSHROOM.get());
 				_player.getInventory().clearOrCountMatchingItems(p -> _stktoremove.getItem() == p.getItem(), 1,
 						_player.inventoryMenu.getCraftSlots());
 			}
 			playerDirection = entity.getDirection();
 			if ((entity.getDirection()) == Direction.NORTH) {
 				if (world instanceof Level _level && !_level.isClientSide()) {
-					ItemEntity entityToSpawn = new ItemEntity(_level, x, y, (z - 1), new ItemStack(MarioModModItems.SUPER_MUSHROOM));
+					ItemEntity entityToSpawn = new ItemEntity(_level, x, y, (z - 1), new ItemStack(MarioModModItems.SUPER_MUSHROOM.get()));
 					entityToSpawn.setPickUpDelay(10);
 					_level.addFreshEntity(entityToSpawn);
 				}
 			} else if ((entity.getDirection()) == Direction.EAST) {
 				if (world instanceof Level _level && !_level.isClientSide()) {
-					ItemEntity entityToSpawn = new ItemEntity(_level, (x + 1), y, z, new ItemStack(MarioModModItems.SUPER_MUSHROOM));
+					ItemEntity entityToSpawn = new ItemEntity(_level, (x + 1), y, z, new ItemStack(MarioModModItems.SUPER_MUSHROOM.get()));
 					entityToSpawn.setPickUpDelay(10);
 					_level.addFreshEntity(entityToSpawn);
 				}
 			} else if ((entity.getDirection()) == Direction.SOUTH) {
 				if (world instanceof Level _level && !_level.isClientSide()) {
-					ItemEntity entityToSpawn = new ItemEntity(_level, x, y, (z + 1), new ItemStack(MarioModModItems.SUPER_MUSHROOM));
+					ItemEntity entityToSpawn = new ItemEntity(_level, x, y, (z + 1), new ItemStack(MarioModModItems.SUPER_MUSHROOM.get()));
 					entityToSpawn.setPickUpDelay(10);
 					_level.addFreshEntity(entityToSpawn);
 				}
 			} else {
 				if (world instanceof Level _level && !_level.isClientSide()) {
-					ItemEntity entityToSpawn = new ItemEntity(_level, (x - 1), y, z, new ItemStack(MarioModModItems.SUPER_MUSHROOM));
+					ItemEntity entityToSpawn = new ItemEntity(_level, (x - 1), y, z, new ItemStack(MarioModModItems.SUPER_MUSHROOM.get()));
 					entityToSpawn.setPickUpDelay(10);
 					_level.addFreshEntity(entityToSpawn);
 				}
@@ -89,7 +89,7 @@ public class SuperMushroomItemInInventoryTickProcedure {
 		if ((entity instanceof LivingEntity _livEnt ? _livEnt.getHealth() : -1) <= 20
 				&& (entity instanceof LivingEntity _livEnt ? _livEnt.getMaxHealth() : -1) == 40) {
 			if (entity instanceof Player _player) {
-				ItemStack _stktoremove = new ItemStack(MarioModModItems.SUPER_MUSHROOM);
+				ItemStack _stktoremove = new ItemStack(MarioModModItems.SUPER_MUSHROOM.get());
 				_player.getInventory().clearOrCountMatchingItems(p -> _stktoremove.getItem() == p.getItem(), 1,
 						_player.inventoryMenu.getCraftSlots());
 			}
@@ -100,8 +100,9 @@ public class SuperMushroomItemInInventoryTickProcedure {
 							"attribute @s minecraft:generic.max_health base set 20");
 			}
 		}
-		if ((entity instanceof Player _playerHasItem ? _playerHasItem.getInventory().contains(new ItemStack(MarioModModItems.SUPER_MUSHROOM)) : false)
-				&& (entity instanceof LivingEntity _livEnt ? _livEnt.getMaxHealth() : -1) == 20) {
+		if ((entity instanceof Player _playerHasItem
+				? _playerHasItem.getInventory().contains(new ItemStack(MarioModModItems.SUPER_MUSHROOM.get()))
+				: false) && (entity instanceof LivingEntity _livEnt ? _livEnt.getMaxHealth() : -1) == 20) {
 			{
 				Entity _ent = entity;
 				if (!_ent.level.isClientSide() && _ent.getServer() != null)
@@ -112,7 +113,7 @@ public class SuperMushroomItemInInventoryTickProcedure {
 				_entity.setHealth(40);
 		}
 		if (!(entity instanceof Player _playerHasItem
-				? _playerHasItem.getInventory().contains(new ItemStack(MarioModModItems.SUPER_MUSHROOM))
+				? _playerHasItem.getInventory().contains(new ItemStack(MarioModModItems.SUPER_MUSHROOM.get()))
 				: false)) {
 			{
 				Entity _ent = entity;

@@ -1,0 +1,21 @@
+{
+  "goomb_die": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "mario_mod:untitled",
+        "stream": false
+      }
+    ]
+  },
+  "goomba_idle": {
+    "category": "neutral",
+    "subtitle": "subtitles.goomba_idle",
+    "sounds": [
+      {
+        "name": "mario_mod:00031-wav_31_guess_bnk_voi_pc51",
+        "stream": false
+      }
+    ]
+  }
+}

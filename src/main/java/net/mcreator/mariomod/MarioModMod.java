@@ -16,15 +16,21 @@ package net.mcreator.mariomod;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
-import net.minecraftforge.fmllegacy.network.simple.SimpleChannel;
-import net.minecraftforge.fmllegacy.network.NetworkRegistry;
-import net.minecraftforge.fmllegacy.network.NetworkEvent;
+import net.minecraftforge.network.simple.SimpleChannel;
+import net.minecraftforge.network.NetworkRegistry;
+import net.minecraftforge.network.NetworkEvent;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.eventbus.api.IEventBus;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.FriendlyByteBuf;
 
 import net.mcreator.mariomod.init.MarioModModTabs;
+import net.mcreator.mariomod.init.MarioModModItems;
+import net.mcreator.mariomod.init.MarioModModFeatures;
+import net.mcreator.mariomod.init.MarioModModEntities;
+import net.mcreator.mariomod.init.MarioModModBlocks;
 
 import java.util.function.Supplier;
 import java.util.function.Function;
@@ -41,6 +47,13 @@ public class MarioModMod {
 
 	public MarioModMod() {
 		MarioModModTabs.load();
+		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+		MarioModModBlocks.REGISTRY.register(bus);
+		MarioModModItems.REGISTRY.register(bus);
+		MarioModModEntities.REGISTRY.register(bus);
+
+		MarioModModFeatures.REGISTRY.register(bus);
+
 	}
 
 	public static <T> void addNetworkMessage(Class<T> messageType, BiConsumer<T, FriendlyByteBuf> encoder, Function<FriendlyByteBuf, T> decoder,

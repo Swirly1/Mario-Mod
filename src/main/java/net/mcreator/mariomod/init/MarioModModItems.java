@@ -4,9 +4,10 @@
  */
 package net.mcreator.mariomod.init;
 
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.registries.RegistryObject;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.item.Item;
@@ -17,32 +18,22 @@ import net.mcreator.mariomod.item.SuperStarItem;
 import net.mcreator.mariomod.item.SuperMushroomItem;
 import net.mcreator.mariomod.item.IceFlowerItem;
 import net.mcreator.mariomod.item.FireFlowerItem;
+import net.mcreator.mariomod.MarioModMod;
 
-import java.util.List;
-import java.util.ArrayList;
-
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class MarioModModItems {
-	private static final List<Item> REGISTRY = new ArrayList<>();
-	public static final Item FIRE_FLOWER = register(new FireFlowerItem());
-	public static final Item FIRE_FLOWER_BLOCK = register(MarioModModBlocks.FIRE_FLOWER_BLOCK, MarioModModTabs.TAB_MARIO);
-	public static final Item SUPER_MUSHROOM = register(new SuperMushroomItem());
-	public static final Item ICE_FLOWER = register(new IceFlowerItem());
-	public static final Item ICE_FLOWER_BLOCK = register(MarioModModBlocks.ICE_FLOWER_BLOCK, MarioModModTabs.TAB_MARIO);
-	public static final Item QUESTION_BLOCK = register(MarioModModBlocks.QUESTION_BLOCK, MarioModModTabs.TAB_MARIO);
-	public static final Item SUPER_STAR = register(new SuperStarItem());
+	public static final DeferredRegister<Item> REGISTRY = DeferredRegister.create(ForgeRegistries.ITEMS, MarioModMod.MODID);
+	public static final RegistryObject<Item> FIRE_FLOWER = REGISTRY.register("fire_flower", () -> new FireFlowerItem());
+	public static final RegistryObject<Item> FIRE_FLOWER_BLOCK = block(MarioModModBlocks.FIRE_FLOWER_BLOCK, MarioModModTabs.TAB_MARIO);
+	public static final RegistryObject<Item> SUPER_MUSHROOM = REGISTRY.register("super_mushroom", () -> new SuperMushroomItem());
+	public static final RegistryObject<Item> ICE_FLOWER = REGISTRY.register("ice_flower", () -> new IceFlowerItem());
+	public static final RegistryObject<Item> ICE_FLOWER_BLOCK = block(MarioModModBlocks.ICE_FLOWER_BLOCK, MarioModModTabs.TAB_MARIO);
+	public static final RegistryObject<Item> QUESTION_BLOCK = block(MarioModModBlocks.QUESTION_BLOCK, MarioModModTabs.TAB_MARIO);
+	public static final RegistryObject<Item> BRICK_BLOCK = block(MarioModModBlocks.BRICK_BLOCK, MarioModModTabs.TAB_MARIO);
+	public static final RegistryObject<Item> GOOMBA = REGISTRY.register("goomba_spawn_egg",
+			() -> new ForgeSpawnEggItem(MarioModModEntities.GOOMBA, -3381760, -16777216, new Item.Properties().tab(MarioModModTabs.TAB_MARIO)));
+	public static final RegistryObject<Item> SUPER_STAR = REGISTRY.register("super_star", () -> new SuperStarItem());
 
-	private static Item register(Item item) {
-		REGISTRY.add(item);
-		return item;
-	}
-
-	private static Item register(Block block, CreativeModeTab tab) {
-		return register(new BlockItem(block, new Item.Properties().tab(tab)).setRegistryName(block.getRegistryName()));
-	}
-
-	@SubscribeEvent
-	public static void registerItems(RegistryEvent.Register<Item> event) {
-		event.getRegistry().registerAll(REGISTRY.toArray(new Item[0]));
+	private static RegistryObject<Item> block(RegistryObject<Block> block, CreativeModeTab tab) {
+		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties().tab(tab)));
 	}
 }

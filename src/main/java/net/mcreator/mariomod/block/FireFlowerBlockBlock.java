@@ -36,7 +36,6 @@ public class FireFlowerBlockBlock extends FlowerBlock {
 	public FireFlowerBlockBlock() {
 		super(MobEffects.FIRE_RESISTANCE, 100,
 				BlockBehaviour.Properties.of(Material.PLANT).randomTicks().noCollission().sound(SoundType.GRASS).instabreak());
-		setRegistryName("fire_flower_block");
 	}
 
 	@Override
@@ -64,7 +63,7 @@ public class FireFlowerBlockBlock extends FlowerBlock {
 		List<ItemStack> dropsOriginal = super.getDrops(state, builder);
 		if (!dropsOriginal.isEmpty())
 			return dropsOriginal;
-		return Collections.singletonList(new ItemStack(MarioModModItems.FIRE_FLOWER));
+		return Collections.singletonList(new ItemStack(MarioModModItems.FIRE_FLOWER.get()));
 	}
 
 	@Override
@@ -79,14 +78,14 @@ public class FireFlowerBlockBlock extends FlowerBlock {
 	}
 
 	@Override
-	public boolean removedByPlayer(BlockState blockstate, Level world, BlockPos pos, Player entity, boolean willHarvest, FluidState fluid) {
-		boolean retval = super.removedByPlayer(blockstate, world, pos, entity, willHarvest, fluid);
+	public boolean onDestroyedByPlayer(BlockState blockstate, Level world, BlockPos pos, Player entity, boolean willHarvest, FluidState fluid) {
+		boolean retval = super.onDestroyedByPlayer(blockstate, world, pos, entity, willHarvest, fluid);
 		FireFlowerBlockPlantDestroyedByPlayerProcedure.execute(world, pos.getX(), pos.getZ());
 		return retval;
 	}
 
 	@OnlyIn(Dist.CLIENT)
 	public static void registerRenderLayer() {
-		ItemBlockRenderTypes.setRenderLayer(MarioModModBlocks.FIRE_FLOWER_BLOCK, renderType -> renderType == RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(MarioModModBlocks.FIRE_FLOWER_BLOCK.get(), renderType -> renderType == RenderType.cutout());
 	}
 }

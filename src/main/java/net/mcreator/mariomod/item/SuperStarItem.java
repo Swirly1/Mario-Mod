@@ -1,6 +1,7 @@
 
 package net.mcreator.mariomod.item;
 
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.ItemStack;
@@ -17,12 +18,16 @@ public class SuperStarItem extends Item {
 				.food((new FoodProperties.Builder()).nutrition(0).saturationMod(0f).alwaysEat()
 
 						.build()));
-		setRegistryName("super_star");
 	}
 
 	@Override
-	public int getUseDuration(ItemStack stack) {
+	public int getUseDuration(ItemStack itemstack) {
 		return 1;
+	}
+
+	@Override
+	public float getDestroySpeed(ItemStack par1ItemStack, BlockState par2Block) {
+		return 0F;
 	}
 
 	@Override

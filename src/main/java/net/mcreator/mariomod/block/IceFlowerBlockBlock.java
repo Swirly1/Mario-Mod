@@ -34,7 +34,6 @@ public class IceFlowerBlockBlock extends FlowerBlock {
 	public IceFlowerBlockBlock() {
 		super(MobEffects.MOVEMENT_SLOWDOWN, 100,
 				BlockBehaviour.Properties.of(Material.PLANT).randomTicks().noCollission().sound(SoundType.GRASS).instabreak());
-		setRegistryName("ice_flower_block");
 	}
 
 	@Override
@@ -62,7 +61,7 @@ public class IceFlowerBlockBlock extends FlowerBlock {
 		List<ItemStack> dropsOriginal = super.getDrops(state, builder);
 		if (!dropsOriginal.isEmpty())
 			return dropsOriginal;
-		return Collections.singletonList(new ItemStack(MarioModModItems.ICE_FLOWER));
+		return Collections.singletonList(new ItemStack(MarioModModItems.ICE_FLOWER.get()));
 	}
 
 	@Override
@@ -92,6 +91,6 @@ public class IceFlowerBlockBlock extends FlowerBlock {
 
 	@OnlyIn(Dist.CLIENT)
 	public static void registerRenderLayer() {
-		ItemBlockRenderTypes.setRenderLayer(MarioModModBlocks.ICE_FLOWER_BLOCK, renderType -> renderType == RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(MarioModModBlocks.ICE_FLOWER_BLOCK.get(), renderType -> renderType == RenderType.cutout());
 	}
 }

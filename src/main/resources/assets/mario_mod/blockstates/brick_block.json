@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "mario_mod:block/brick_block"
+    }
+  }
+}

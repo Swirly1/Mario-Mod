@@ -13,25 +13,25 @@ public class QuestionBlockBlockDestroyedByPlayerProcedure {
 		random = Math.random();
 		if (random < 0.25) {
 			if (world instanceof Level _level && !_level.isClientSide()) {
-				ItemEntity entityToSpawn = new ItemEntity(_level, x, y, z, new ItemStack(MarioModModItems.FIRE_FLOWER));
+				ItemEntity entityToSpawn = new ItemEntity(_level, x, y, z, new ItemStack(MarioModModItems.FIRE_FLOWER.get()));
 				entityToSpawn.setPickUpDelay(10);
 				_level.addFreshEntity(entityToSpawn);
 			}
 		} else if (random < 0.5) {
 			if (world instanceof Level _level && !_level.isClientSide()) {
-				ItemEntity entityToSpawn = new ItemEntity(_level, x, y, z, new ItemStack(MarioModModItems.SUPER_MUSHROOM));
+				ItemEntity entityToSpawn = new ItemEntity(_level, x, y, z, new ItemStack(MarioModModItems.SUPER_MUSHROOM.get()));
 				entityToSpawn.setPickUpDelay(10);
 				_level.addFreshEntity(entityToSpawn);
 			}
 		} else if (random < 0.75 && random > 0.7) {
 			if (world instanceof Level _level && !_level.isClientSide()) {
-				ItemEntity entityToSpawn = new ItemEntity(_level, x, y, z, new ItemStack(MarioModModItems.SUPER_STAR));
+				ItemEntity entityToSpawn = new ItemEntity(_level, x, y, z, new ItemStack(MarioModModItems.SUPER_STAR.get()));
 				entityToSpawn.setPickUpDelay(10);
 				_level.addFreshEntity(entityToSpawn);
 			}
 		} else if (random < 1) {
 			if (world instanceof Level _level && !_level.isClientSide()) {
-				ItemEntity entityToSpawn = new ItemEntity(_level, x, y, z, new ItemStack(MarioModModItems.ICE_FLOWER));
+				ItemEntity entityToSpawn = new ItemEntity(_level, x, y, z, new ItemStack(MarioModModItems.ICE_FLOWER.get()));
 				entityToSpawn.setPickUpDelay(10);
 				_level.addFreshEntity(entityToSpawn);
 			}

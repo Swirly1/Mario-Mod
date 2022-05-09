@@ -4,55 +4,53 @@
  */
 package net.mcreator.mariomod.init;
 
+import net.minecraftforge.registries.RegistryObject;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
-import net.minecraftforge.event.RegistryEvent;
 
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.data.BuiltinRegistries;
-import net.minecraft.core.Registry;
+import net.minecraft.core.Holder;
 
 import net.mcreator.mariomod.world.features.plants.IceFlowerBlockFeature;
 import net.mcreator.mariomod.world.features.plants.FireFlowerBlockFeature;
+import net.mcreator.mariomod.MarioModMod;
 
+import java.util.function.Supplier;
 import java.util.Set;
-import java.util.Map;
-import java.util.HashMap;
+import java.util.List;
+import java.util.ArrayList;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber
 public class MarioModModFeatures {
-	private static final Map<Feature<?>, FeatureRegistration> REGISTRY = new HashMap<>();
-	static {
-		REGISTRY.put(FireFlowerBlockFeature.FEATURE, new FeatureRegistration(GenerationStep.Decoration.VEGETAL_DECORATION,
-				FireFlowerBlockFeature.GENERATE_BIOMES, FireFlowerBlockFeature.CONFIGURED_FEATURE));
-		REGISTRY.put(IceFlowerBlockFeature.FEATURE, new FeatureRegistration(GenerationStep.Decoration.VEGETAL_DECORATION,
-				IceFlowerBlockFeature.GENERATE_BIOMES, IceFlowerBlockFeature.CONFIGURED_FEATURE));
+	public static final DeferredRegister<Feature<?>> REGISTRY = DeferredRegister.create(ForgeRegistries.FEATURES, MarioModMod.MODID);
+	private static final List<FeatureRegistration> FEATURE_REGISTRATIONS = new ArrayList<>();
+	public static final RegistryObject<Feature<?>> FIRE_FLOWER_BLOCK = register("fire_flower_block", FireFlowerBlockFeature::feature,
+			new FeatureRegistration(GenerationStep.Decoration.VEGETAL_DECORATION, FireFlowerBlockFeature.GENERATE_BIOMES,
+					FireFlowerBlockFeature::placedFeature));
+	public static final RegistryObject<Feature<?>> ICE_FLOWER_BLOCK = register("ice_flower_block", IceFlowerBlockFeature::feature,
+			new FeatureRegistration(GenerationStep.Decoration.VEGETAL_DECORATION, IceFlowerBlockFeature.GENERATE_BIOMES,
+					IceFlowerBlockFeature::placedFeature));
+
+	private static RegistryObject<Feature<?>> register(String registryname, Supplier<Feature<?>> feature, FeatureRegistration featureRegistration) {
+		FEATURE_REGISTRATIONS.add(featureRegistration);
+		return REGISTRY.register(registryname, feature);
 	}
 
 	@SubscribeEvent
-	public static void registerFeature(RegistryEvent.Register<Feature<?>> event) {
-		event.getRegistry().registerAll(REGISTRY.keySet().toArray(new Feature[0]));
-		REGISTRY.forEach((feature, registration) -> Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, feature.getRegistryName(),
-				registration.configuredFeature()));
-	}
-
-	@Mod.EventBusSubscriber
-	private static class BiomeFeatureLoader {
-		@SubscribeEvent
-		public static void addFeatureToBiomes(BiomeLoadingEvent event) {
-			for (FeatureRegistration registration : REGISTRY.values()) {
-				if (registration.biomes() == null || registration.biomes().contains(event.getName())) {
-					event.getGeneration().getFeatures(registration.stage()).add(() -> registration.configuredFeature());
-				}
-			}
+	public static void addFeaturesToBiomes(BiomeLoadingEvent event) {
+		for (FeatureRegistration registration : FEATURE_REGISTRATIONS) {
+			if (registration.biomes() == null || registration.biomes().contains(event.getName()))
+				event.getGeneration().getFeatures(registration.stage()).add(registration.placedFeature().get());
 		}
 	}
 
 	private static record FeatureRegistration(GenerationStep.Decoration stage, Set<ResourceLocation> biomes,
-			ConfiguredFeature<?, ?> configuredFeature) {
+			Supplier<Holder<PlacedFeature>> placedFeature) {
 	}
 }

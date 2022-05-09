@@ -317,14 +317,6 @@
       }
     },
     {
-      "name": "SuperStar",
-      "type": "food",
-      "sortid": 22,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "super_star"
-    },
-    {
       "name": "SuperMushroomRecipe",
       "type": "recipe",
       "sortid": 23,
@@ -339,6 +331,98 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "question_block_recipe"
+    },
+    {
+      "name": "BrickBlock",
+      "type": "block",
+      "sortid": 25,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "brick_block"
+    },
+    {
+      "name": "Goomba",
+      "type": "livingentity",
+      "sortid": 26,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "goomba"
+    },
+    {
+      "name": "SuperStar",
+      "type": "item",
+      "sortid": 27,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "super_star"
+    },
+    {
+      "name": "GoombaPlayerCollidesWithThisEntity",
+      "type": "procedure",
+      "sortid": 28,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "goomba_player_collides_with_this_entity",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "QuestionBlockUpdateTick",
+      "type": "procedure",
+      "sortid": 29,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "question_block_update_tick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "BrickBlockRecipe",
+      "type": "recipe",
+      "sortid": 30,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "brick_block_recipe"
+    },
+    {
+      "name": "NormalBricks",
+      "type": "recipe",
+      "sortid": 31,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "normal_bricks"
     }
   ],
   "variable_elements": [
@@ -373,17 +457,40 @@
       "value": "0"
     }
   ],
-  "sound_elements": [],
+  "sound_elements": [
+    {
+      "name": "goomb_die",
+      "files": [
+        "untitled"
+      ],
+      "category": "neutral",
+      "subtitle": ""
+    },
+    {
+      "name": "goomba_idle",
+      "files": [
+        "00031-wav_31_guess_bnk_voi_pc51"
+      ],
+      "category": "neutral",
+      "subtitle": "gooba idle"
+    }
+  ],
   "language_map": {
     "en_us": {
+      "subtitles.goomba_idle": "gooba idle",
       "item.mario_mod.super_star": "Super Star",
-      "key.mario_mod.tripple_jump": "Tripple Jump",
       "item.mario_mod.ice_flower": "Ice Flower",
-      "block.mario_mod.ice_flower_block": "Ice Flower Plant",
       "block.mario_mod.fire_flower_block": "Fire Flower Plant",
       "block.mario_mod.question_block": "Question Block",
       "item.mario_mod.super_mushroom": "Super Mushroom",
+      "entity.mario_mod.goomba": "Goomba",
+      "key.mario_mod.tripple_jump": "Tripple Jump",
+      "subtitles.goomba_die": "",
+      "block.mario_mod.ice_flower_block": "Ice Flower Plant",
+      "subtitles.goomb_die": "",
       "itemGroup.tabmario": "Mario",
+      "block.mario_mod.brick_block": "Brick Block",
+      "item.mario_mod.goomba_spawn_egg": "Goomba Spawn Egg",
       "item.mario_mod.fire_flower": "Fire Flower"
     }
   },
@@ -404,9 +511,9 @@
     "dependencies": [],
     "dependants": [],
     "mcreatorDependencies": [],
-    "currentGenerator": "forge-1.17.1",
+    "currentGenerator": "forge-1.18.2",
     "modElementsPackage": "net.mcreator.mariomod",
     "lockBaseModFiles": false
   },
-  "mcreatorVersion": 202100354000
+  "mcreatorVersion": 202200119518
 }

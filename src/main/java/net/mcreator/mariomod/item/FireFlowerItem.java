@@ -19,7 +19,6 @@ import net.mcreator.mariomod.entity.FireFlowerEntity;
 public class FireFlowerItem extends Item {
 	public FireFlowerItem() {
 		super(new Item.Properties().tab(MarioModModTabs.TAB_MARIO).durability(50));
-		setRegistryName("fire_flower");
 	}
 
 	@Override

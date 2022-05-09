@@ -13,13 +13,13 @@ import java.util.Map;
 public class IceFlowerBlockUpdateTickProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z) {
 		double count = 0;
-		if ((world.getBlockState(new BlockPos((int) x, (int) (y - 2), (int) z))).getBlock() == Blocks.GRASS_BLOCK
-				|| (world.getBlockState(new BlockPos((int) x, (int) (y - 2), (int) z))).getBlock() == Blocks.DIRT
-				|| (world.getBlockState(new BlockPos((int) x, (int) (y - 2), (int) z))).getBlock() == Blocks.STONE) {
-			world.setBlock(new BlockPos((int) x, (int) y, (int) z), Blocks.AIR.defaultBlockState(), 3);
-			world.setBlock(new BlockPos((int) x, (int) (y - 1), (int) z), Blocks.AIR.defaultBlockState(), 3);
+		if ((world.getBlockState(new BlockPos(x, y - 2, z))).getBlock() == Blocks.GRASS_BLOCK
+				|| (world.getBlockState(new BlockPos(x, y - 2, z))).getBlock() == Blocks.DIRT
+				|| (world.getBlockState(new BlockPos(x, y - 2, z))).getBlock() == Blocks.STONE) {
+			world.setBlock(new BlockPos(x, y, z), Blocks.AIR.defaultBlockState(), 3);
+			world.setBlock(new BlockPos(x, y - 1, z), Blocks.AIR.defaultBlockState(), 3);
 			{
-				BlockPos _bp = new BlockPos((int) x, (int) (y - 2), (int) z);
+				BlockPos _bp = new BlockPos(x, y - 2, z);
 				BlockState _bs = Blocks.SNOW_BLOCK.defaultBlockState();
 				BlockState _bso = world.getBlockState(_bp);
 				for (Map.Entry<Property<?>, Comparable<?>> entry : _bso.getValues().entrySet()) {
@@ -33,7 +33,7 @@ public class IceFlowerBlockUpdateTickProcedure {
 				world.setBlock(_bp, _bs, 3);
 			}
 			{
-				BlockPos _bp = new BlockPos((int) x, (int) (y - 3), (int) z);
+				BlockPos _bp = new BlockPos(x, y - 3, z);
 				BlockState _bs = Blocks.SNOW_BLOCK.defaultBlockState();
 				BlockState _bso = world.getBlockState(_bp);
 				for (Map.Entry<Property<?>, Comparable<?>> entry : _bso.getValues().entrySet()) {
@@ -46,7 +46,7 @@ public class IceFlowerBlockUpdateTickProcedure {
 				}
 				world.setBlock(_bp, _bs, 3);
 			}
-			world.setBlock(new BlockPos((int) x, (int) (y - 1), (int) z), MarioModModBlocks.ICE_FLOWER_BLOCK.defaultBlockState(), 3);
+			world.setBlock(new BlockPos(x, y - 1, z), MarioModModBlocks.ICE_FLOWER_BLOCK.get().defaultBlockState(), 3);
 		}
 	}
 }

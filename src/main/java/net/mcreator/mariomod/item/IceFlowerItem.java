@@ -19,7 +19,6 @@ import net.mcreator.mariomod.entity.IceFlowerEntity;
 public class IceFlowerItem extends Item {
 	public IceFlowerItem() {
 		super(new Item.Properties().tab(MarioModModTabs.TAB_MARIO).durability(50));
-		setRegistryName("ice_flower");
 	}
 
 	@Override

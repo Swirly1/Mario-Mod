@@ -6,6 +6,6 @@ import net.minecraft.core.BlockPos;
 
 public class FireFlowerBlockPlantDestroyedByPlayerProcedure {
 	public static void execute(LevelAccessor world, double x, double z) {
-		world.setBlock(new BlockPos((int) x, (int) 128, (int) z), Blocks.AIR.defaultBlockState(), 3);
+		world.setBlock(new BlockPos(x, 128, z), Blocks.AIR.defaultBlockState(), 3);
 	}
 }

@@ -23,7 +23,6 @@ import java.util.Collections;
 public class QuestionBlockBlock extends Block {
 	public QuestionBlockBlock() {
 		super(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(0.15f, 10f));
-		setRegistryName("question_block");
 	}
 
 	@Override
@@ -40,8 +39,8 @@ public class QuestionBlockBlock extends Block {
 	}
 
 	@Override
-	public boolean removedByPlayer(BlockState blockstate, Level world, BlockPos pos, Player entity, boolean willHarvest, FluidState fluid) {
-		boolean retval = super.removedByPlayer(blockstate, world, pos, entity, willHarvest, fluid);
+	public boolean onDestroyedByPlayer(BlockState blockstate, Level world, BlockPos pos, Player entity, boolean willHarvest, FluidState fluid) {
+		boolean retval = super.onDestroyedByPlayer(blockstate, world, pos, entity, willHarvest, fluid);
 		QuestionBlockBlockDestroyedByPlayerProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ());
 		return retval;
 	}

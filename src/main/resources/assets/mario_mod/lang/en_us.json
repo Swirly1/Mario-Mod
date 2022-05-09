@@ -1,11 +1,17 @@
 {
+  "subtitles.goomba_idle": "gooba idle",
   "item.mario_mod.super_star": "Super Star",
-  "key.mario_mod.tripple_jump": "Tripple Jump",
   "item.mario_mod.ice_flower": "Ice Flower",
-  "block.mario_mod.ice_flower_block": "Ice Flower Plant",
   "block.mario_mod.fire_flower_block": "Fire Flower Plant",
   "block.mario_mod.question_block": "Question Block",
   "item.mario_mod.super_mushroom": "Super Mushroom",
+  "entity.mario_mod.goomba": "Goomba",
+  "key.mario_mod.tripple_jump": "Tripple Jump",
+  "subtitles.goomba_die": "",
+  "block.mario_mod.ice_flower_block": "Ice Flower Plant",
+  "subtitles.goomb_die": "",
   "itemGroup.tabmario": "Mario",
+  "block.mario_mod.brick_block": "Brick Block",
+  "item.mario_mod.goomba_spawn_egg": "Goomba Spawn Egg",
   "item.mario_mod.fire_flower": "Fire Flower"
 }
