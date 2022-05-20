@@ -16,6 +16,7 @@ import net.minecraft.world.item.BlockItem;
 
 import net.mcreator.mariomod.item.SuperStarItem;
 import net.mcreator.mariomod.item.SuperMushroomItem;
+import net.mcreator.mariomod.item.KoopaShellItem;
 import net.mcreator.mariomod.item.IceFlowerItem;
 import net.mcreator.mariomod.item.FireFlowerItem;
 import net.mcreator.mariomod.MarioModMod;
@@ -32,6 +33,10 @@ public class MarioModModItems {
 	public static final RegistryObject<Item> GOOMBA = REGISTRY.register("goomba_spawn_egg",
 			() -> new ForgeSpawnEggItem(MarioModModEntities.GOOMBA, -3381760, -16777216, new Item.Properties().tab(MarioModModTabs.TAB_MARIO)));
 	public static final RegistryObject<Item> SUPER_STAR = REGISTRY.register("super_star", () -> new SuperStarItem());
+	public static final RegistryObject<Item> KOOPA = REGISTRY.register("koopa_spawn_egg",
+			() -> new ForgeSpawnEggItem(MarioModModEntities.KOOPA, -256, -16737997, new Item.Properties().tab(MarioModModTabs.TAB_MARIO)));
+	public static final RegistryObject<Item> KOOPA_SHELL_HELMET = REGISTRY.register("koopa_shell_helmet", () -> new KoopaShellItem.Helmet());
+	public static final RegistryObject<Item> EMPTY_BLOCK = block(MarioModModBlocks.EMPTY_BLOCK, MarioModModTabs.TAB_MARIO);
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block, CreativeModeTab tab) {
 		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties().tab(tab)));

@@ -4,7 +4,7 @@
   "definition": {
     "name": "Mario",
     "icon": {
-      "value": "Items.CAKE"
+      "value": "CUSTOM:SuperStar"
     },
     "showSearch": false
   }

@@ -19,6 +19,8 @@ import net.minecraft.core.Holder;
 
 import net.mcreator.mariomod.world.features.plants.IceFlowerBlockFeature;
 import net.mcreator.mariomod.world.features.plants.FireFlowerBlockFeature;
+import net.mcreator.mariomod.world.features.Question1Feature;
+import net.mcreator.mariomod.world.features.Brick2Question1Feature;
 import net.mcreator.mariomod.MarioModMod;
 
 import java.util.function.Supplier;
@@ -36,6 +38,11 @@ public class MarioModModFeatures {
 	public static final RegistryObject<Feature<?>> ICE_FLOWER_BLOCK = register("ice_flower_block", IceFlowerBlockFeature::feature,
 			new FeatureRegistration(GenerationStep.Decoration.VEGETAL_DECORATION, IceFlowerBlockFeature.GENERATE_BIOMES,
 					IceFlowerBlockFeature::placedFeature));
+	public static final RegistryObject<Feature<?>> BRICK_2_QUESTION_1 = register("brick_2_question_1", Brick2Question1Feature::feature,
+			new FeatureRegistration(GenerationStep.Decoration.SURFACE_STRUCTURES, Brick2Question1Feature.GENERATE_BIOMES,
+					Brick2Question1Feature::placedFeature));
+	public static final RegistryObject<Feature<?>> QUESTION_1 = register("question_1", Question1Feature::feature,
+			new FeatureRegistration(GenerationStep.Decoration.SURFACE_STRUCTURES, Question1Feature.GENERATE_BIOMES, Question1Feature::placedFeature));
 
 	private static RegistryObject<Feature<?>> register(String registryname, Supplier<Feature<?>> feature, FeatureRegistration featureRegistration) {
 		FEATURE_REGISTRATIONS.add(featureRegistration);

@@ -20,6 +20,8 @@ public class MarioModModSounds {
 	static {
 		REGISTRY.put(new ResourceLocation("mario_mod", "goomb_die"), new SoundEvent(new ResourceLocation("mario_mod", "goomb_die")));
 		REGISTRY.put(new ResourceLocation("mario_mod", "goomba_idle"), new SoundEvent(new ResourceLocation("mario_mod", "goomba_idle")));
+		REGISTRY.put(new ResourceLocation("mario_mod", "koopa_idle"), new SoundEvent(new ResourceLocation("mario_mod", "koopa_idle")));
+		REGISTRY.put(new ResourceLocation("mario_mod", "koopa_die"), new SoundEvent(new ResourceLocation("mario_mod", "koopa_die")));
 	}
 
 	@SubscribeEvent

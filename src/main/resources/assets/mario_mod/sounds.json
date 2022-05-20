@@ -17,5 +17,23 @@
         "stream": false
       }
     ]
+  },
+  "koopa_idle": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "mario_mod:vo_nk_start_hover_amb.ny.32",
+        "stream": false
+      }
+    ]
+  },
+  "koopa_die": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "mario_mod:koopadie",
+        "stream": false
+      }
+    ]
   }
 }

@@ -6,15 +6,15 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 
 import net.mcreator.mariomod.entity.GoombaEntity;
-import net.mcreator.mariomod.client.model.Modelcustom_model;
+import net.mcreator.mariomod.client.model.Modelgoomba;
 
-public class GoombaRenderer extends MobRenderer<GoombaEntity, Modelcustom_model<GoombaEntity>> {
+public class GoombaRenderer extends MobRenderer<GoombaEntity, Modelgoomba<GoombaEntity>> {
 	public GoombaRenderer(EntityRendererProvider.Context context) {
-		super(context, new Modelcustom_model(context.bakeLayer(Modelcustom_model.LAYER_LOCATION)), 0.5f);
+		super(context, new Modelgoomba(context.bakeLayer(Modelgoomba.LAYER_LOCATION)), 0.5f);
 	}
 
 	@Override
 	public ResourceLocation getTextureLocation(GoombaEntity entity) {
-		return new ResourceLocation("mario_mod:textures/goombas.png");
+		return new ResourceLocation("mario_mod:textures/goomba_texture.png");
 	}
 }

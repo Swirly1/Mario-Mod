@@ -11,6 +11,7 @@ import net.minecraftforge.api.distmarker.Dist;
 
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 
+import net.mcreator.mariomod.client.renderer.KoopaRenderer;
 import net.mcreator.mariomod.client.renderer.GoombaRenderer;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
@@ -20,5 +21,6 @@ public class MarioModModEntityRenderers {
 		event.registerEntityRenderer(MarioModModEntities.FIRE_FLOWER.get(), ThrownItemRenderer::new);
 		event.registerEntityRenderer(MarioModModEntities.ICE_FLOWER.get(), ThrownItemRenderer::new);
 		event.registerEntityRenderer(MarioModModEntities.GOOMBA.get(), GoombaRenderer::new);
+		event.registerEntityRenderer(MarioModModEntities.KOOPA.get(), KoopaRenderer::new);
 	}
 }

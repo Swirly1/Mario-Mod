@@ -423,6 +423,52 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "normal_bricks"
+    },
+    {
+      "name": "Koopa",
+      "type": "livingentity",
+      "sortid": 32,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "koopa"
+    },
+    {
+      "name": "KoopaShell",
+      "type": "armor",
+      "sortid": 33,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "koopa_shell",
+      "metadata": {
+        "eh": true,
+        "el": false,
+        "eb": false,
+        "ec": false
+      }
+    },
+    {
+      "name": "Brick2Question1",
+      "type": "structure",
+      "sortid": 34,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "brick_2_question_1"
+    },
+    {
+      "name": "Question1",
+      "type": "structure",
+      "sortid": 35,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "question_1"
+    },
+    {
+      "name": "EmptyBlock",
+      "type": "block",
+      "sortid": 36,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "empty_block"
     }
   ],
   "variable_elements": [
@@ -473,25 +519,50 @@
       ],
       "category": "neutral",
       "subtitle": "gooba idle"
+    },
+    {
+      "name": "koopa_idle",
+      "files": [
+        "vo_nk_start_hover_amb.ny.32"
+      ],
+      "category": "neutral",
+      "subtitle": ""
+    },
+    {
+      "name": "koopa_die",
+      "files": [
+        "koopadie"
+      ],
+      "category": "neutral",
+      "subtitle": ""
     }
   ],
   "language_map": {
     "en_us": {
-      "subtitles.goomba_idle": "gooba idle",
+      "item.mario_mod.koopa_shell_leggings": "Koopa Shell Leggings",
       "item.mario_mod.super_star": "Super Star",
+      "item.mario_mod.koopa_spawn_egg": "Koopa Spawn Egg",
       "item.mario_mod.ice_flower": "Ice Flower",
+      "item.mario_mod.koopa_shell_helmet": "Koopa Shell",
+      "item.mario_mod.super_mushroom": "Super Mushroom",
+      "subtitles.koopa_idle": "",
+      "entity.mario_mod.goomba": "Goomba",
+      "subtitles.goomba_die": "",
+      "itemGroup.tabmario": "Mario",
+      "item.mario_mod.fire_flower": "Fire Flower",
+      "subtitles.goomba_idle": "gooba idle",
+      "item.mario_mod.koopa_shell_chestplate": "Koopa Shell Body",
+      "entity.mario_mod.koopa": "Koopa",
       "block.mario_mod.fire_flower_block": "Fire Flower Plant",
       "block.mario_mod.question_block": "Question Block",
-      "item.mario_mod.super_mushroom": "Super Mushroom",
-      "entity.mario_mod.goomba": "Goomba",
       "key.mario_mod.tripple_jump": "Tripple Jump",
-      "subtitles.goomba_die": "",
+      "block.mario_mod.empty_block": "Empty Block",
       "block.mario_mod.ice_flower_block": "Ice Flower Plant",
+      "subtitles.koopa_die": "",
       "subtitles.goomb_die": "",
-      "itemGroup.tabmario": "Mario",
       "block.mario_mod.brick_block": "Brick Block",
       "item.mario_mod.goomba_spawn_egg": "Goomba Spawn Egg",
-      "item.mario_mod.fire_flower": "Fire Flower"
+      "item.mario_mod.koopa_shell_boots": "Koopa Shell Boots"
     }
   },
   "foldersRoot": {

@@ -16,6 +16,7 @@ import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Entity;
 
+import net.mcreator.mariomod.entity.KoopaEntity;
 import net.mcreator.mariomod.entity.IceFlowerEntity;
 import net.mcreator.mariomod.entity.GoombaEntity;
 import net.mcreator.mariomod.entity.FireFlowerEntity;
@@ -35,6 +36,11 @@ public class MarioModModEntities {
 					.setUpdateInterval(3).setCustomClientFactory(GoombaEntity::new)
 
 					.sized(0.6f, 0.6f));
+	public static final RegistryObject<EntityType<KoopaEntity>> KOOPA = register("koopa",
+			EntityType.Builder.<KoopaEntity>of(KoopaEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64)
+					.setUpdateInterval(3).setCustomClientFactory(KoopaEntity::new)
+
+					.sized(0.6f, 1.8f));
 
 	private static <T extends Entity> RegistryObject<EntityType<T>> register(String registryname, EntityType.Builder<T> entityTypeBuilder) {
 		return REGISTRY.register(registryname, () -> (EntityType<T>) entityTypeBuilder.build(registryname));
@@ -44,11 +50,13 @@ public class MarioModModEntities {
 	public static void init(FMLCommonSetupEvent event) {
 		event.enqueueWork(() -> {
 			GoombaEntity.init();
+			KoopaEntity.init();
 		});
 	}
 
 	@SubscribeEvent
 	public static void registerAttributes(EntityAttributeCreationEvent event) {
 		event.put(GOOMBA.get(), GoombaEntity.createAttributes().build());
+		event.put(KOOPA.get(), KoopaEntity.createAttributes().build());
 	}
 }

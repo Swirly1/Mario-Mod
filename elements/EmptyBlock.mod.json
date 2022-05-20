@@ -2,12 +2,12 @@
   "_fv": 28,
   "_type": "block",
   "definition": {
-    "texture": "questionblocktop",
-    "textureTop": "questionblocktop",
-    "textureLeft": "questionblock",
-    "textureFront": "questionblock",
-    "textureRight": "questionblock",
-    "textureBack": "questionblock",
+    "texture": "emptyblock",
+    "textureTop": "emptyblock",
+    "textureLeft": "emptyblock",
+    "textureFront": "emptyblock",
+    "textureRight": "emptyblock",
+    "textureBack": "emptyblock",
     "renderType": 10,
     "customModelName": "Normal",
     "rotationMode": 0,
@@ -32,9 +32,9 @@
         "subtract": false
       }
     ],
-    "name": "Question Block",
+    "name": "Empty Block",
     "specialInfo": [],
-    "hardness": 0.15000000000000002,
+    "hardness": 1.0,
     "resistance": 10.0,
     "hasGravity": false,
     "isWaterloggable": false,
@@ -43,7 +43,7 @@
     },
     "destroyTool": "Not specified",
     "customDrop": {
-      "value": "Blocks.AIR"
+      "value": ""
     },
     "dropAmount": 1,
     "useLootTableForDrops": false,
@@ -95,8 +95,8 @@
       "value": ""
     },
     "luminance": 0,
-    "unbreakable": true,
-    "breakHarvestLevel": -1,
+    "unbreakable": false,
+    "breakHarvestLevel": 1,
     "spawnParticles": false,
     "particleToSpawn": {
       "value": "EXPLOSION_NORMAL"
@@ -121,12 +121,13 @@
     "isFluidTank": false,
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
-    "onDestroyedByPlayer": {
-      "name": "QuestionBlockBlockDestroyedByPlayer"
-    },
     "spawnWorldTypes": [],
     "restrictionBiomes": [],
-    "blocksToReplace": [],
+    "blocksToReplace": [
+      {
+        "value": "Blocks.STONE"
+      }
+    ],
     "generationShape": "UNIFORM",
     "frequencyPerChunks": 10,
     "frequencyOnChunk": 16,

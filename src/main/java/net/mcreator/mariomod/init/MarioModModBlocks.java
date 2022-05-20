@@ -17,6 +17,7 @@ import net.minecraft.world.level.block.Block;
 import net.mcreator.mariomod.block.QuestionBlockBlock;
 import net.mcreator.mariomod.block.IceFlowerBlockBlock;
 import net.mcreator.mariomod.block.FireFlowerBlockBlock;
+import net.mcreator.mariomod.block.EmptyBlockBlock;
 import net.mcreator.mariomod.block.BrickBlockBlock;
 import net.mcreator.mariomod.MarioModMod;
 
@@ -26,6 +27,7 @@ public class MarioModModBlocks {
 	public static final RegistryObject<Block> ICE_FLOWER_BLOCK = REGISTRY.register("ice_flower_block", () -> new IceFlowerBlockBlock());
 	public static final RegistryObject<Block> QUESTION_BLOCK = REGISTRY.register("question_block", () -> new QuestionBlockBlock());
 	public static final RegistryObject<Block> BRICK_BLOCK = REGISTRY.register("brick_block", () -> new BrickBlockBlock());
+	public static final RegistryObject<Block> EMPTY_BLOCK = REGISTRY.register("empty_block", () -> new EmptyBlockBlock());
 
 	@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 	public static class ClientSideHandler {

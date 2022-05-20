@@ -7,7 +7,6 @@ package net.mcreator.mariomod.init;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.api.distmarker.Dist;
 
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.CreativeModeTab;
 
@@ -18,7 +17,7 @@ public class MarioModModTabs {
 		TAB_MARIO = new CreativeModeTab("tabmario") {
 			@Override
 			public ItemStack makeIcon() {
-				return new ItemStack(Items.CAKE);
+				return new ItemStack(MarioModModItems.SUPER_STAR.get());
 			}
 
 			@OnlyIn(Dist.CLIENT)

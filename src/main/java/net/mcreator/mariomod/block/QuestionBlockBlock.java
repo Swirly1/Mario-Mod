@@ -22,7 +22,7 @@ import java.util.Collections;
 
 public class QuestionBlockBlock extends Block {
 	public QuestionBlockBlock() {
-		super(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(0.15f, 10f));
+		super(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(-1, 3600000));
 	}
 
 	@Override
