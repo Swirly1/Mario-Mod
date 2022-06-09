@@ -1,0 +1,12 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "0": "pipe_connector_texture",
+        "2": "pipe_connector_texture_top",
+        "3": "pipe_connector_texture_head"
+      },
+      "name": "default"
+    }
+  }
+}

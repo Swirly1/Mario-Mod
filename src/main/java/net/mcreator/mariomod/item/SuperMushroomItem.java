@@ -43,7 +43,7 @@ public class SuperMushroomItem extends Item {
 
 	@Override
 	public boolean onDroppedByPlayer(ItemStack itemstack, Player entity) {
-		SuperMushroomItemIsDroppedByPlayerProcedure.execute(entity.level, entity);
+		SuperMushroomItemIsDroppedByPlayerProcedure.execute(entity);
 		return true;
 	}
 }

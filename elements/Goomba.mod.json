@@ -77,7 +77,7 @@
     "immuneToWither": false,
     "immuneToDragonBreath": false,
     "mobDrop": {
-      "value": ""
+      "value": "CUSTOM:Coin"
     },
     "livingSound": {
       "value": "CUSTOM:goomba_idle"

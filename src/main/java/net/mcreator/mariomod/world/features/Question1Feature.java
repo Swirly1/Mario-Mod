@@ -5,7 +5,6 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockIgnoreProcessor;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.minecraft.world.level.levelgen.placement.BiomeFilter;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
@@ -33,7 +32,7 @@ public class Question1Feature extends Feature<NoneFeatureConfiguration> {
 	public static Feature<?> feature() {
 		FEATURE = new Question1Feature();
 		CONFIGURED_FEATURE = FeatureUtils.register("mario_mod:question_1", FEATURE, FeatureConfiguration.NONE);
-		PLACED_FEATURE = PlacementUtils.register("mario_mod:question_1", CONFIGURED_FEATURE, List.of(BiomeFilter.biome()));
+		PLACED_FEATURE = PlacementUtils.register("mario_mod:question_1", CONFIGURED_FEATURE, List.of());
 		return FEATURE;
 	}
 

@@ -3,7 +3,7 @@
   "_type": "keybind",
   "definition": {
     "triggerKey": "SPACE",
-    "keyBindingName": "Tripple Jump",
+    "keyBindingName": "Tripple Jump/Yoshi Jump",
     "keyBindingCategoryKey": "movement",
     "onKeyPressed": {
       "name": "TrippleJumpOnKeyPressed"

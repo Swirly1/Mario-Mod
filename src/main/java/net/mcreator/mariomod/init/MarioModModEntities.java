@@ -16,10 +16,12 @@ import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Entity;
 
+import net.mcreator.mariomod.entity.YoshiEntity;
 import net.mcreator.mariomod.entity.KoopaEntity;
 import net.mcreator.mariomod.entity.IceFlowerEntity;
 import net.mcreator.mariomod.entity.GoombaEntity;
 import net.mcreator.mariomod.entity.FireFlowerEntity;
+import net.mcreator.mariomod.entity.CaptainToadEntity;
 import net.mcreator.mariomod.MarioModMod;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -41,6 +43,16 @@ public class MarioModModEntities {
 					.setUpdateInterval(3).setCustomClientFactory(KoopaEntity::new)
 
 					.sized(0.6f, 1.8f));
+	public static final RegistryObject<EntityType<CaptainToadEntity>> CAPTAIN_TOAD = register("captain_toad",
+			EntityType.Builder.<CaptainToadEntity>of(CaptainToadEntity::new, MobCategory.AMBIENT).setShouldReceiveVelocityUpdates(true)
+					.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CaptainToadEntity::new)
+
+					.sized(0.6f, 1.7f));
+	public static final RegistryObject<EntityType<YoshiEntity>> YOSHI = register("yoshi",
+			EntityType.Builder.<YoshiEntity>of(YoshiEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64)
+					.setUpdateInterval(3).setCustomClientFactory(YoshiEntity::new)
+
+					.sized(0.9f, 1.8f));
 
 	private static <T extends Entity> RegistryObject<EntityType<T>> register(String registryname, EntityType.Builder<T> entityTypeBuilder) {
 		return REGISTRY.register(registryname, () -> (EntityType<T>) entityTypeBuilder.build(registryname));
@@ -51,6 +63,8 @@ public class MarioModModEntities {
 		event.enqueueWork(() -> {
 			GoombaEntity.init();
 			KoopaEntity.init();
+			CaptainToadEntity.init();
+			YoshiEntity.init();
 		});
 	}
 
@@ -58,5 +72,7 @@ public class MarioModModEntities {
 	public static void registerAttributes(EntityAttributeCreationEvent event) {
 		event.put(GOOMBA.get(), GoombaEntity.createAttributes().build());
 		event.put(KOOPA.get(), KoopaEntity.createAttributes().build());
+		event.put(CAPTAIN_TOAD.get(), CaptainToadEntity.createAttributes().build());
+		event.put(YOSHI.get(), YoshiEntity.createAttributes().build());
 	}
 }

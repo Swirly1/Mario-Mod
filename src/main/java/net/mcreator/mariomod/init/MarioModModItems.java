@@ -16,9 +16,11 @@ import net.minecraft.world.item.BlockItem;
 
 import net.mcreator.mariomod.item.SuperStarItem;
 import net.mcreator.mariomod.item.SuperMushroomItem;
+import net.mcreator.mariomod.item.PipeConnectorToolItem;
 import net.mcreator.mariomod.item.KoopaShellItem;
 import net.mcreator.mariomod.item.IceFlowerItem;
 import net.mcreator.mariomod.item.FireFlowerItem;
+import net.mcreator.mariomod.item.CoinItem;
 import net.mcreator.mariomod.MarioModMod;
 
 public class MarioModModItems {
@@ -37,6 +39,13 @@ public class MarioModModItems {
 			() -> new ForgeSpawnEggItem(MarioModModEntities.KOOPA, -256, -16737997, new Item.Properties().tab(MarioModModTabs.TAB_MARIO)));
 	public static final RegistryObject<Item> KOOPA_SHELL_HELMET = REGISTRY.register("koopa_shell_helmet", () -> new KoopaShellItem.Helmet());
 	public static final RegistryObject<Item> EMPTY_BLOCK = block(MarioModModBlocks.EMPTY_BLOCK, MarioModModTabs.TAB_MARIO);
+	public static final RegistryObject<Item> WARP_PIPE = block(MarioModModBlocks.WARP_PIPE, MarioModModTabs.TAB_MARIO);
+	public static final RegistryObject<Item> PIPE_CONNECTOR_TOOL = REGISTRY.register("pipe_connector_tool", () -> new PipeConnectorToolItem());
+	public static final RegistryObject<Item> CAPTAIN_TOAD = REGISTRY.register("captain_toad_spawn_egg",
+			() -> new ForgeSpawnEggItem(MarioModModEntities.CAPTAIN_TOAD, -1, -65536, new Item.Properties().tab(MarioModModTabs.TAB_MARIO)));
+	public static final RegistryObject<Item> COIN = REGISTRY.register("coin", () -> new CoinItem());
+	public static final RegistryObject<Item> YOSHI = REGISTRY.register("yoshi_spawn_egg",
+			() -> new ForgeSpawnEggItem(MarioModModEntities.YOSHI, -13369549, -1, new Item.Properties().tab(MarioModModTabs.TAB_MARIO)));
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block, CreativeModeTab tab) {
 		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties().tab(tab)));

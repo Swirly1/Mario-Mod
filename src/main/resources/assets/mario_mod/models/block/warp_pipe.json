@@ -1,0 +1,9 @@
+{
+  "parent": "mario_mod:custom/pipe",
+  "textures": {
+    "all": "mario_mod:blocks/pipe1",
+    "particle": "mario_mod:blocks/pipe1",
+    "0": "mario_mod:blocks/pipe1",
+    "1": "mario_mod:blocks/pipe2"
+  }
+}

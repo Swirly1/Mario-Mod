@@ -1,17 +1,12 @@
 package net.mcreator.mariomod.procedures;
 
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Entity;
 
-import net.mcreator.mariomod.network.MarioModModVariables;
-
 public class SuperMushroomItemIsDroppedByPlayerProcedure {
-	public static void execute(LevelAccessor world, Entity entity) {
+	public static void execute(Entity entity) {
 		if (entity == null)
 			return;
-		MarioModModVariables.MapVariables.get(world).shroomCount = MarioModModVariables.MapVariables.get(world).shroomCount - 1;
-		MarioModModVariables.MapVariables.get(world).syncData(world);
 		{
 			Entity _ent = entity;
 			if (!_ent.level.isClientSide() && _ent.getServer() != null)

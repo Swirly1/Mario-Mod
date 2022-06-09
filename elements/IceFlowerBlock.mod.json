@@ -94,6 +94,7 @@
     ],
     "restrictionBiomes": [],
     "patchSize": 3,
+    "generateAtAnyHeight": false,
     "onTickUpdate": {
       "name": "IceFlowerBlockUpdateTick"
     }

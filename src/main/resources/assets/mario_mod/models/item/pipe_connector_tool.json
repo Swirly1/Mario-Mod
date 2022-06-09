@@ -1,0 +1,9 @@
+{
+  "parent": "mario_mod:custom/pipe_connector",
+  "textures": {
+    "0": "mario_mod:blocks/pipe_connector_texture",
+    "2": "mario_mod:blocks/pipe_connector_texture_top",
+    "3": "mario_mod:blocks/pipe_connector_texture_head",
+    "particle": "mario_mod:items/pipe_connector_tool"
+  }
+}

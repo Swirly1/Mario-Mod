@@ -4,10 +4,12 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.common.MinecraftForge;
 
+import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.Entity;
 
 import net.mcreator.mariomod.network.MarioModModVariables;
+import net.mcreator.mariomod.entity.YoshiEntity;
 
 public class TrippleJumpOnKeyPressedProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
@@ -16,12 +18,26 @@ public class TrippleJumpOnKeyPressedProcedure {
 		boolean give = false;
 		MarioModModVariables.MapVariables.get(world).giveDouble = true;
 		MarioModModVariables.MapVariables.get(world).syncData(world);
-		if (entity.isOnGround() == true) {
-			MarioModModVariables.MapVariables.get(world).jumpCount = MarioModModVariables.MapVariables.get(world).jumpCount + 1;
-			MarioModModVariables.MapVariables.get(world).syncData(world);
+		if ((entity.getVehicle()) instanceof YoshiEntity) {
+			if ((entity.getVehicle()).getPersistentData().getBoolean("inair")) {
+				(entity.getVehicle()).setDeltaMovement(
+						new Vec3(((entity.getVehicle()).getDeltaMovement().x()), 1, ((entity.getVehicle()).getDeltaMovement().z())));
+				entity.getPersistentData().putBoolean("inair", (true));
+			}
 		}
 		if (entity.isOnGround() == true) {
-			if (MarioModModVariables.MapVariables.get(world).jumpCount % 3 == 0) {
+			{
+				double _setval = (entity.getCapability(MarioModModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new MarioModModVariables.PlayerVariables())).jumpCount + 1;
+				entity.getCapability(MarioModModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+					capability.jumpCount = _setval;
+					capability.syncPlayerVariables(entity);
+				});
+			}
+		}
+		if (entity.isOnGround() == true) {
+			if ((entity.getCapability(MarioModModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+					.orElse(new MarioModModVariables.PlayerVariables())).jumpCount % 3 == 0) {
 				MarioModModVariables.MapVariables.get(world).startY = entity.getY();
 				MarioModModVariables.MapVariables.get(world).syncData(world);
 				{

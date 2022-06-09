@@ -31,6 +31,7 @@ import net.mcreator.mariomod.init.MarioModModItems;
 import net.mcreator.mariomod.init.MarioModModFeatures;
 import net.mcreator.mariomod.init.MarioModModEntities;
 import net.mcreator.mariomod.init.MarioModModBlocks;
+import net.mcreator.mariomod.init.MarioModModBlockEntities;
 
 import java.util.function.Supplier;
 import java.util.function.Function;
@@ -51,7 +52,7 @@ public class MarioModMod {
 		MarioModModBlocks.REGISTRY.register(bus);
 		MarioModModItems.REGISTRY.register(bus);
 		MarioModModEntities.REGISTRY.register(bus);
-
+		MarioModModBlockEntities.REGISTRY.register(bus);
 		MarioModModFeatures.REGISTRY.register(bus);
 
 	}

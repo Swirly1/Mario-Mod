@@ -14,6 +14,7 @@ import net.minecraftforge.api.distmarker.Dist;
 
 import net.minecraft.world.level.block.Block;
 
+import net.mcreator.mariomod.block.WarpPipeBlock;
 import net.mcreator.mariomod.block.QuestionBlockBlock;
 import net.mcreator.mariomod.block.IceFlowerBlockBlock;
 import net.mcreator.mariomod.block.FireFlowerBlockBlock;
@@ -28,6 +29,7 @@ public class MarioModModBlocks {
 	public static final RegistryObject<Block> QUESTION_BLOCK = REGISTRY.register("question_block", () -> new QuestionBlockBlock());
 	public static final RegistryObject<Block> BRICK_BLOCK = REGISTRY.register("brick_block", () -> new BrickBlockBlock());
 	public static final RegistryObject<Block> EMPTY_BLOCK = REGISTRY.register("empty_block", () -> new EmptyBlockBlock());
+	public static final RegistryObject<Block> WARP_PIPE = REGISTRY.register("warp_pipe", () -> new WarpPipeBlock());
 
 	@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 	public static class ClientSideHandler {
@@ -35,6 +37,7 @@ public class MarioModModBlocks {
 		public static void clientSetup(FMLClientSetupEvent event) {
 			FireFlowerBlockBlock.registerRenderLayer();
 			IceFlowerBlockBlock.registerRenderLayer();
+			WarpPipeBlock.registerRenderLayer();
 		}
 	}
 }
